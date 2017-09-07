@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Reivew.find(params[:id])
+    @review = Review.find(params[:id])
   end
 
 end

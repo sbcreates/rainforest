@@ -11,11 +11,11 @@
 <hr>
 <h4>New Review</h4>
 
-<%= render '/review/form' %>
+<%= render '/reviews/form' %>
 
 <h2>Reviews:</h2>
 <% @product.reviews.each do |review| %>
   By <span class="user-name"><%= review.user_name %></span> on <span class="date-time"><%= review.created_at.strftime("%dth %B, %Y at %I:%M%p") %></span>
   <p><%= review.review %></p>
-  <%= link_to 'Edit', 'products/#{@product.id}/reviews/#{review.id}' %>
+  <%= link_to 'Edit', edit_product_review_path(@product.id, review.id) %>
 <% end %>
