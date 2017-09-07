@@ -11,37 +11,11 @@
 <hr>
 <h4>New Review</h4>
 
-  <%= form_for([@product, @review]) do |f| %>
-    <% if @review.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<%= render '/review/form' %>
 
-        <ul>
-        <% @review.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <p>
-        <%= f.label :user_name %><br />
-        <%= f.text_field :user_name %>
-      </p>
-      <p>
-        <%= f.label :review %><br />
-        <%= f.text_area :review %>
-      </p>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
-
-
-<h2>Revews:</h2>
+<h2>Reviews:</h2>
 <% @product.reviews.each do |review| %>
   By <span class="user-name"><%= review.user_name %></span> on <span class="date-time"><%= review.created_at.strftime("%dth %B, %Y at %I:%M%p") %></span>
   <p><%= review.review %></p>
+  <%= link_to 'Edit', 'products/#{@product.id}/reviews/#{review.id}' %>
 <% end %>
