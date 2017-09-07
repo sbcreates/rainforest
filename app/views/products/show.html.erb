@@ -6,3 +6,41 @@
   <%= @product.price_in_dollars %>
 </p>
  <%= link_to "Back", products_path %> | <%= link_to "Edit", edit_product_path %> | <%= link_to("Delete", "/products/#{@product.id}", method: :DELETE, data: {confirm: "Are you sure you want to delete #{@product.name}?"})%>
+
+<hr>
+<h4>New Review</h4>
+
+  <%= form_for([@product, @review]) do |f| %>
+    <% if @review.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+        <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <p>
+        <%= f.label :user_name %><br />
+        <%= f.text_field :user_name %>
+      </p>
+      <p>
+        <%= f.label :review %><br />
+        <%= f.text_area :review %>
+      </p>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+
+<h2>Revews:</h2>
+<% @product.reviews.each do |review| %>
+  By <span class="user-name"><%= review.user_name %></span> on <span class="date-time"><%= review.created_at.strftime("%dth %B, %Y at %I:%M%p") %></span>
+  <p><%= review.review %></p>
+<% end %>
