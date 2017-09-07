@@ -3,6 +3,6 @@
   <%= @product.name %>
   <br/>
   <%= @product.description %> |
-  <%= @product.price_in_cents %>
+  <%= @product.price_in_dollars %>
 </p>
  <%= link_to "Back", products_path %> | <%= link_to "Edit", edit_product_path %> | <%= link_to("Delete", "/products/#{@product.id}", method: :DELETE, data: {confirm: "Are you sure you want to delete #{@product.name}?"})%>
