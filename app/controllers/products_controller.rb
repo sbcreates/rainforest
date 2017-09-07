@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     @product.price_in_cents = params[:product][:price_in_cents]
 
     if @product.save
-      redirect_to product_path
+      redirect_to products_path
     else
       render :new
     end
