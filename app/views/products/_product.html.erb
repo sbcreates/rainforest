@@ -1,1 +1,15 @@
 
+<%= form_for @product do |t| %>
+<p>
+<%= t.label   :name %>
+<%= t.text_field  :name %>
+</p>
+<p>
+<%= t.label   :description %>
+<%= t.text_area    :description %>
+</p><p>
+<%= t.label   :price_in_cents %>
+<%= t.number_field :price_in_cents %>
+</p>
+<%= t.submit %>
+<% end %>
