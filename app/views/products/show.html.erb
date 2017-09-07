@@ -13,6 +13,7 @@
 
 <%= render '/reviews/form' %>
 
+
 <h2>Reviews:</h2>
 <% @product.reviews.each do |review| %>
   By <span class="user-name"><%= review.user_name %></span> on <span class="date-time"><%= review.created_at.strftime("%dth %B, %Y at %I:%M%p") %></span>
