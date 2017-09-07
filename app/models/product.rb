@@ -8,5 +8,6 @@ class Product < ApplicationRecord
   end
 
   has_many :reviews
+  validates_associated :reviews
 
 end
