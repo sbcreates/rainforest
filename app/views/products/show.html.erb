@@ -7,6 +7,7 @@
 </p>
  <%= link_to "Back", products_path %> | <%= link_to "Edit", edit_product_path %> | <%= link_to("Delete", "/products/#{@product.id}", method: :DELETE, data: {confirm: "Are you sure you want to delete #{@product.name}?"})%>
 
+
 <hr>
 <h4>New Review</h4>
 
